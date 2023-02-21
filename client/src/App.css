@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Red+Hat+Display:wght@300;500;600;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+.main_App {
+  font-family: 'Red Hat Display', sans-serif;
+  background-image: url('./images/background.jpg');
+  background-size: 'cover';
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
+}
+
