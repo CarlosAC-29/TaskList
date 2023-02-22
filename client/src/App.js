@@ -6,15 +6,16 @@ import Navbar from './components/Navbar';
 import { Container } from '@mui/material'
 import './App.css'
 
+
+
 function App() {
 
 
   return (
     <BrowserRouter>
-
+      <Navbar />
       <div className='main_App'>
-        <Navbar />
-        <Container >
+        <Container>
           <Routes>
             <Route path='/' element={<TaskList />} />
             <Route path='/tasks/new' element={<TaskForm />} />
@@ -22,8 +23,8 @@ function App() {
           </Routes>
         </Container>
       </div>
-
     </BrowserRouter>
+
   );
 }
 

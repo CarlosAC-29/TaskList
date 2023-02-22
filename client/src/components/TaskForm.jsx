@@ -4,7 +4,9 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 
 
+
 export default function TaskForm() {
+
 
   const navigate = useNavigate()
   const params = useParams()
@@ -68,7 +70,7 @@ export default function TaskForm() {
   return (
     <Grid container direction='column' alignItems='center' justifyItems='center'>
       <Grid item xs={3}>
-        <Card sx={{ mt: 5 ,boxShadow: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px' }} style={{
+        <Card sx={{ mt: 5, boxShadow: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px' }} style={{
           backgroundColor: '#E9C59C',
           padding: '1rem',
           boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px',
@@ -77,25 +79,28 @@ export default function TaskForm() {
           justifyContent: 'center',
           alignItems: 'center'
         }}>
-          <Typography variant='h5' textAlign='center' sx={{fontFamily: 'Red Hat Display'}}>
-           {editing ? 'EDIT TASK' : 'CREATE TASK'}
+          <Typography variant='h5' textAlign='center' sx={{ fontFamily: 'Red Hat Display' }}>
+            {editing ? 'EDIT TASK' : 'CREATE TASK'}
           </Typography>
-          <CardContent sx={{color: '#381810'}}>
-            <form onSubmit={handleSubmit} style={{display:'flex', flexDirection:'column', justifyItems: 'center', alignItems:'center'}}>
+          <CardContent sx={{ color: '#381810' }}>
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', justifyItems: 'center', alignItems: 'center' }}>
               <TextField
+                
                 name='title'
                 value={task.title}
                 onChange={handleChange}
                 variant='filled'
                 placeholder='testing'
                 label='Write your title'
-                sx={{width:'100%' ,display: 'block', margin: '.5rem 0',  }}
+                color='warning'
+                sx={{ width: '100%', display: 'block', margin: '.5rem 0', }}
 
                 inputProps={{ style: { color: '#381810' } }}
                 InputLabelProps={{ style: { color: '#381810', fontFamily: 'Red Hat Display' } }}
               />
 
               <TextField
+              
                 name='description'
                 value={task.description}
                 onChange={handleChange}
@@ -104,13 +109,14 @@ export default function TaskForm() {
                 label='Write your description'
                 multiline
                 rows={4}
+                color='warning'
                 sx={{ display: 'block', margin: '.5rem 0' }}
 
                 inputProps={{ style: { color: '#381810' } }}
-                InputLabelProps={{ style: { color: '#381810', fontFamily: 'Red Hat Display', fontWeight: 'light'} }}
+                InputLabelProps={{ style: { color: '#381810', fontFamily: 'Red Hat Display', fontWeight: 'light' } }}
               />
 
-              <Button variant='contained' color='primary' type='submit' sx={{fontFamily: 'Red Hat Display'}} disabled={!task.title || !task.description}>
+              <Button variant='contained' color='primary' type='submit' sx={{ background:'#12A884', '&:hover':{background: '#0B785E'} ,fontFamily: 'Red Hat Display' }} disabled={!task.title || !task.description}>
                 {load ? <CircularProgress color='inherit' size={24} /> : 'save'}
               </Button>
 
