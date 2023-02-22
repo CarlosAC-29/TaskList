@@ -9,6 +9,7 @@ const app = express()
 
 const taskRoutes = require('./routes/taks.routes')
 
+app.get("/", (req, res) => {res.send("Server is running")})
 app.use(cors())
 app.use(morgan('dev'))
 app.use(express.json())
