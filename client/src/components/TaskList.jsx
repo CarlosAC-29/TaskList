@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Card, CardContent, Container, Typography } from '@mui/material'
+import { Button, Card, CardContent, Container, Typography, Fade } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import EditIcon from '@mui/icons-material/Edit';
@@ -37,6 +37,7 @@ export default function TaskList() {
     <Container sx={{padding: '20px'}}>
       {
         task.map((task, index) => (
+          <Fade in={true} timeout={600}>
           <Card key={index} style={{ margin: '.9rem 0', backgroundColor: '#381810',
           boxShadow: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px' }}>
             <CardContent style={ {display: "flex", justifyContent: 'space-between', gap: '10px'}}>
@@ -67,6 +68,7 @@ export default function TaskList() {
               </div>
             </CardContent>
           </Card>
+    </Fade>
         ))
       }
     </Container>
