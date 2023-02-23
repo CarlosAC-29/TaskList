@@ -1,20 +1,23 @@
 //Funciones
-const {pool} = require('../db');
+
 const { Client } = require('pg');
+const {db} = require('../config')
 
 
 
 const getAllTasks = async (req, res, next) => {
 
     const client = new Client({
-        connectionString: 'postgresql://postgres:XIf02L9ceRhQSpGuYCR2@containers-us-west-53.railway.app:6243/railway'
+        connectionString: db.database_url
     })
+
+    console.log(db.database_url)
 
     try {
         await client.connect(); 
         const allTask = await client.query('SELECT * FROM task')
-        res.json(allTask.rows)
         await client.end();
+        res.json(allTask.rows)
 
     } catch (error) {
         next(error)
@@ -25,7 +28,7 @@ const getAllTasks = async (req, res, next) => {
 const getTask = async (req, res, next) => {
 
     const client = new Client({
-        connectionString: 'postgresql://postgres:XIf02L9ceRhQSpGuYCR2@containers-us-west-53.railway.app:6243/railway'
+        connectionString: db.database_url
     })
 
     try {
@@ -46,7 +49,7 @@ const createTask = async (req, res, next) => {
     const { title, description } = req.body
 
     const client = new Client({
-        connectionString: 'postgresql://postgres:XIf02L9ceRhQSpGuYCR2@containers-us-west-53.railway.app:6243/railway'
+        connectionString: db.database_url
     })
 
     try {
@@ -64,7 +67,7 @@ const updateTask = async (req, res, next) => {
     const { id } = req.params
     const { title, description } = req.body
     const client = new Client({
-        connectionString: 'postgresql://postgres:XIf02L9ceRhQSpGuYCR2@containers-us-west-53.railway.app:6243/railway'
+        connectionString: db.database_url
     })
 
 
@@ -90,7 +93,7 @@ const updateTask = async (req, res, next) => {
 const deleteTask = async (req, res, next) => {
     const { id } = req.params
     const client = new Client({
-        connectionString: 'postgresql://postgres:XIf02L9ceRhQSpGuYCR2@containers-us-west-53.railway.app:6243/railway'
+        connectionString: db.database_url
     })
 
     try {
