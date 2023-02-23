@@ -13,7 +13,7 @@ console.log(typeof(PORT))
 
 const taskRoutes = require('./routes/taks.routes')
 
-app.get("/", (req, res) => {res.send("Server is running on port "+PORT)})
+app.get("/", (req, res) => {res.send("Server is running on port "+PORT+" tipo de dato "+typeof(PORT))})
 app.use(cors())
 app.use(morgan('dev'))
 app.use(express.json())
