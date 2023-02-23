@@ -2,16 +2,17 @@
 // Correr server con Npm run dev
 
 const { json } = require('express')
+const { Client } = require('pg');
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 const app = express()
 const {PORT} = require('./config')
-
-console.log(typeof(PORT))
-
-
 const taskRoutes = require('./routes/taks.routes')
+
+
+
+
 
 app.get("/", (req, res) => {res.send("Server is running on port "+PORT+" tipo de dato "+typeof(PORT))})
 app.use(cors())
