@@ -8,6 +8,8 @@ const cors = require('cors')
 const app = express()
 const {PORT} = require('./config')
 
+console.log(typeof(PORT))
+
 
 const taskRoutes = require('./routes/taks.routes')
 
