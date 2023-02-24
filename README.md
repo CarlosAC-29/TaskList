@@ -14,13 +14,13 @@ npm install
 ```
 
 ## Usage
-To run server back-end use 
+To run back-end use 
 
 ```bash
 npm run dev
 ```
 
-To run server front-end use 
+To run front-end use 
 
 ```bash
 npm start
